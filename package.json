@@ -1,0 +1,14 @@
+{
+  "name": "webdevportfolio-2",
+  "version": "1.0.0",
+  "description": "Web Developer Portfolio Page",
+  "main": "app.js",
+  "scripts": {
+    "compile:sass": "node-sass --watch assets/scss/main.scss assets/css/styles.css"
+  },
+  "author": "Justin Schiller",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
