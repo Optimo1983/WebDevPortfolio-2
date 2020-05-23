@@ -46,7 +46,7 @@
                     
                 </ul> 
             </div>
-            <a class="btn btn-cta-primary float-right" href="mailto:contact@justinschiller.com" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>              
+            <a id="scroll-btn" class="btn btn-cta-primary float-right" href="#contact"><i class="fas fa-paper-plane"></i> Contact Me</a>              
         </div>
     </header>
     
@@ -271,16 +271,16 @@
 
                 <!-- ===== CONTACT SECTION ===== -->
                 <!-- ============================================================== -->
-                <aside class="contact aside section">
+                <aside id="contact" class="contact aside section">
                   <div class="section-inner shadow-sm rounded">
 
                      <h2 class="heading">Contact Me</h2>
                      <p>Have a question or want to work together?</p>
 
                      <form action="/contact" method="POST" class="contact__form">
-                        <input type="text" name="name" class="contact__field contact__input" placeholder="Your name">
-                        <input type="text" name="email" class="contact__field contact__input" placeholder="Your email">
-                        <textarea type="text" name="message" class="contact__field contact__textarea" placeholder="Your message"></textarea>
+                        <input type="text" name="name" class="contact__name contact__field contact__input" placeholder="Your name">
+                        <input type="text" name="email" class="contact__email contact__field contact__input" placeholder="Your email">
+                        <textarea type="text" name="message" class="contact__message contact__field contact__textarea" placeholder="Your message"></textarea>
 
                         <button class="btn btn-cta-primary contact__btn">Send</button>
                      </form>
@@ -307,6 +307,6 @@
     <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.5.min.js"></script>
 
     <!-- custom js -->
-    <script type="text/javascript" src="assets/js/main.js"></script>            
+    <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

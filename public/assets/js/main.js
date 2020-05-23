@@ -1,6 +1,7 @@
-$(window).on('load', function() {
 
+$(window).on('load', function() {
     $('.level-bar-inner').each(function() {
+
         var itemWidth = $(this).data('level');
         
         $(this).animate({
@@ -20,10 +21,8 @@ jQuery(document).ready(function($) {
     $("#rss-feeds").rss(
     
         //Change this to your own rss feeds
-        "https://reddit.com/r/worldnews/.rss",
-      //   https://hnrss.org/frontpage
-        
-         {
+        "https://reddit.com/r/worldnews/.rss", {
+           
          limit: 3,
          
          // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
@@ -52,10 +51,51 @@ jQuery(document).ready(function($) {
          }
     );
     
-
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
     new GitHubCalendar("#github-graph", "Optimo1983", { responsive: true });
 
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
     GitHubActivity.feed({ username: "Optimo1983", selector: "#ghfeed" });
 });
+
+
+document.getElementById('scroll-btn').addEventListener('click', (e) => {
+
+   setTimeout(() => {
+      document.getElementById('contact').style.boxShadow = '0 0 12px 0px #5CE0D8';
+   }, 500);
+   setTimeout(() => {
+      document.getElementById('contact').style.boxShadow = 'none';
+   }, 1500);
+});
+
+// document.querySelector('.contact__btn').addEventListener('click', (e) => {
+//    e.preventDefault();
+//    submitMsg();
+
+   
+//    async function submitMsg() {
+//       const name = document.querySelector('.contact__name').value,
+//             email = document.querySelector('.contact__email').value,
+//             message = document.querySelector('.contact__message').value;
+
+//       try {
+//          await axios.post('/contact', {
+//             name: name,
+//             email: email,
+//             message: message
+//          })
+//          .then(response => {
+//             if (response.data.error) {
+//                return console.log(response.data.error);
+//             }
+   
+//             return console.log(response.data)
+//          });
+//       } catch (error) {
+//          if (error) {
+//             console.log(error);
+//          }
+//       }
+//    }
+// });

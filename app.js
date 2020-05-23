@@ -3,6 +3,7 @@ const    express = require('express'),
          bodyParser = require('body-parser'),
          nodemailer = require('nodemailer'),
          path = require('path');
+         axios = require('axios').default,
          port = process.env.PORT || 3000;
 
          require('dotenv').config();
@@ -29,7 +30,8 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/contact', (req, res) => {
-   console.log(req.body.email);
+   console.log(req.body);
+
    const mailOptions = {
       from: `${req.body.email} <${process.env.USER}>`,
       to: process.env.USER,
