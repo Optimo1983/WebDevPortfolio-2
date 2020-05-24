@@ -1,3 +1,7 @@
+html {
+   scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Lato', arial, sans-serif;   
     color: $text-color;
@@ -505,12 +509,11 @@ a.dotted-link {
         .title {
             font-size: 18px;
             line-height: 1.3;
-            text-decoration: underline;
-            
+            font-weight: 600;            
             a {
-                color: $color;
+                color: $text-color;
                 &:hover {
-                    color: darken($color, 10%);
+                    color: darken($text-color, 20%);
                 }
             }
         }
@@ -540,9 +543,21 @@ a.dotted-link {
         }
     }
 }
-
 /* Contact section */
 .contact {
+   transition: box-shadow 1s ease-in-out;
+   border-radius: 8px;
+
+   input:-webkit-autofill,
+   input:-webkit-autofill:hover, 
+   input:-webkit-autofill:focus, 
+   input:-webkit-autofill:active  {
+      -webkit-box-shadow: 0 0 0 30px #1F2833 inset !important;
+   }
+
+   input:-webkit-autofill {
+      -webkit-text-fill-color: #C5C6C7 !important;
+  }
 
    & p {
    }
@@ -569,8 +584,6 @@ a.dotted-link {
          outline: 0;
          
       }
-
-
    }
 
    &__input {
@@ -594,13 +607,30 @@ a.dotted-link {
          border-color: $color-3;
          
       }
+   }
 
+   &__btn-flexbox {
+      display: flex;
+      align-items: center;
    }
 
    &__btn {
+      margin-right: 15px;
    }
+}
 
+#contact__msg-success {
+   display: none;
+   align-items: center;
 
+   color: green;
+   margin-bottom: 0;
+}
+#contact__msg-error {
+   display: none;
+   align-items: center;
+   color: red;
+   margin-bottom: 0;
 }
 
 
