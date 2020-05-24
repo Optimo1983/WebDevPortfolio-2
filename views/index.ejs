@@ -278,15 +278,15 @@
                      <p>Have a question or want to work together?</p>
 
                      <form class="contact__form">
-                        <input type="text" name="name" id="contact__name" class="contact__name contact__field contact__input" placeholder="Your name">
-                        <input type="text" name="email" id="contact__email" class="contact__email contact__field contact__input" placeholder="Your email">
-                        <textarea type="text" name="message" id="contact__message" class="contact__message contact__field contact__textarea" placeholder="Your message"></textarea>
+                        <input type="text" name="name" id="contact__name" class="contact__name contact__field contact__input" placeholder="Your name" required>
+                        <input type="text" name="email" id="contact__email" class="contact__email contact__field contact__input" placeholder="Your email" required>
+                        <textarea type="text" name="message" id="contact__message" class="contact__message contact__field contact__textarea" placeholder="Your message" required></textarea>
 
                         <div class="contact__btn-flexbox">
                            <a class="btn btn-cta-primary contact__btn">Send</a>
 
                            <p id="contact__msg-success"><i class="far fa-check-circle" style="font-size: 24px; margin-right: 5px;"></i> Message sent!</p>
-                           <p id="contact__msg-error"><i class="fas fa-times" style="font-size: 24px; margin-right: 5px;"></i> Error! Try again.</p>
+                           <p id="contact__msg-error"><i class="fas fa-times" style="font-size: 24px; margin-right: 5px;"></i> Invalid info</p>
                         </div>
                         
                      </form>

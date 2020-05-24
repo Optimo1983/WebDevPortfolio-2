@@ -60,33 +60,37 @@ jQuery(document).ready(function($) {
 
    $('.contact__btn').on('click', function(e) {
       e.preventDefault();
+      if (name.val() && email.val() && message.val()) {
+         $.ajax({
+            url: '/api/contact',
+            method: 'POST',
+            data: {
+               name: name.val(),
+               email: email.val(),
+               message: message.val()
+            },
+            success: function() {
+               msgSuccess.css('display', 'flex');
+               name.val('');
+               email.val('');
+               message.val('');
+            },
+            error: function(request, status, error) {
+               console.log(error)
+               msgError.css('display', 'flex');
+            }
+         });
+   
+      } else {
+         msgError.css('display', 'flex');
 
-      $.ajax({
-         url: '/api/contact',
-         method: 'POST',
-         data: {
-            name: name.val(),
-            email: email.val(),
-            message: message.val()
-         },
-         success: function() {
-            msgSuccess.css('display', 'flex');
-            name.val('');
-            email.val('');
-            message.val('');
-         },
-         error: function(request, status, error) {
-            console.log(error)
-            msgError.css('display', 'flex');
-         }
-      });
+      }
 
       setTimeout(function() {
          msgError.css('display', 'none');
          msgSuccess.css('display', 'none');
    
       }, 3000);
-
    });
    
 
