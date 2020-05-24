@@ -202,7 +202,7 @@ a.dotted-link {
                 &:hover {
                     color: $color;
                 }
-            }     
+            }
         }
 
         .project-image {
@@ -212,6 +212,18 @@ a.dotted-link {
             }
         }
         
+        a {
+            @media only screen and (max-width: 435px) {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+
+            &:first-of-type {
+               margin-bottom: 20px;
+            }
+         }
+         
+        }
     }
     .divider {
         margin-bottom: 60px;

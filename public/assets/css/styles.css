@@ -180,6 +180,13 @@ a.dotted-link {
     transition: all .25s ease-in-out; }
     .latest .item .project-image:hover {
       transform: translateY(-3px); }
+  @media only screen and (max-width: 435px) {
+    .latest .item a {
+      display: block;
+      margin-right: auto;
+      margin-left: auto; }
+      .latest .item a:first-of-type {
+        margin-bottom: 20px; } }
 
 .latest .divider {
   margin-bottom: 60px; }
