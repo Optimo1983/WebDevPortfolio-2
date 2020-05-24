@@ -1,24 +1,17 @@
 const    express = require('express'),
          app = express(),
-         bodyParser = require('body-parser'),
          nodemailer = require('nodemailer'),
-         path = require('path');
          axios = require('axios').default,
          port = process.env.PORT || 3000;
-
          require('dotenv').config();
 
-
+// === EXPRESS MIDDLEWARE ===
+// ===============================================
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-
-app.get('/', (req, res) => {
-   res.render('index.ejs');
-});
-
-
-
+// === NODEMAILER CONFIG ===
+// ===============================================
 const transporter = nodemailer.createTransport({
    service: 'gmail',
    secure: false,
@@ -29,30 +22,37 @@ const transporter = nodemailer.createTransport({
    }
 });
 
-app.post('/contact', (req, res) => {
-   console.log(req.body);
+// === ROUTES ===
+// ===============================================
+app.get('/', (req, res) => {
+   res.render('index.ejs');
+});
+
+app.post('/api/contact', (req, res) => {
+   const { name, email, message } = req.body;
 
    const mailOptions = {
-      from: `${req.body.email} <${process.env.USER}>`,
+      from: `${email} <${process.env.USER}>`,
       to: process.env.USER,
       subject: 'WebDev Portfolio Message',
-      text: req.body.message,
-      html: `<p>${req.body.name} at ${req.body.email} sent you the following message:</p>
-             <p>${req.body.message}</p>`
+      text: message,
+      html: `<p>${name} at ${email} sent you the following message:</p>
+             <p>${message}</p>`
    };
 
    transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-          return console.log(error.message);
+         res.send(false);
+         return console.log(error.message);
       } else {
-          console.log("Contact request email sent!");
+          res.send(true);
       }
   });
 
 });
 
-
-
+// === SERVER ===
+// ===============================================
 app.listen(port, () => {
    console.log(`App is running on port ${port}`);
 });

@@ -609,8 +609,28 @@ a.dotted-link {
       }
    }
 
-   &__btn {
+   &__btn-flexbox {
+      display: flex;
+      align-items: center;
    }
+
+   &__btn {
+      margin-right: 15px;
+   }
+}
+
+#contact__msg-success {
+   display: none;
+   align-items: center;
+
+   color: green;
+   margin-bottom: 0;
+}
+#contact__msg-error {
+   display: none;
+   align-items: center;
+   color: red;
+   margin-bottom: 0;
 }
 
 

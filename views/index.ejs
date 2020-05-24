@@ -83,7 +83,7 @@
                                     
                                 <div class="desc text-left">                                    
                                     <p>An electronics e-commerce site built from scratch. Leverages the Best Buy API for product content. Allows users to create and manage secure accounts, perform product searches, view product information and ratings, add products to their cart or save them to their favorites.</p>
-                                    <p>"Vanilla" JavaScript was used entirely on the client-side to reinforce foundation coding skills. Backend utilizes Node with Express framework and a PostgreSQL database.</p>
+                                    <p>"Vanilla" JavaScript was used on the client-side to reinforce foundation coding skills. Backend utilizes Node with Express framework and a PostgreSQL database.</p>
                                 </div>       
                                 <a class="btn btn-cta-secondary margin-right-sm" href="https://e-commerce-project-heroku.herokuapp.com/" target="_blank"><i class="fas fa-external-link-alt"></i>View Site</a>
                                 <a class="btn btn-cta-secondary" href="https://github.com/Optimo1983/E-Commerce-Project.git" target="_blank"><i class="fas fa-code"></i>View Code</a>                  
@@ -277,12 +277,18 @@
                      <h2 class="heading">Contact Me</h2>
                      <p>Have a question or want to work together?</p>
 
-                     <form action="/contact" method="POST" class="contact__form">
-                        <input type="text" name="name" class="contact__name contact__field contact__input" placeholder="Your name">
-                        <input type="text" name="email" class="contact__email contact__field contact__input" placeholder="Your email">
-                        <textarea type="text" name="message" class="contact__message contact__field contact__textarea" placeholder="Your message"></textarea>
+                     <form class="contact__form">
+                        <input type="text" name="name" id="contact__name" class="contact__name contact__field contact__input" placeholder="Your name">
+                        <input type="text" name="email" id="contact__email" class="contact__email contact__field contact__input" placeholder="Your email">
+                        <textarea type="text" name="message" id="contact__message" class="contact__message contact__field contact__textarea" placeholder="Your message"></textarea>
 
-                        <button class="btn btn-cta-primary contact__btn">Send</button>
+                        <div class="contact__btn-flexbox">
+                           <a class="btn btn-cta-primary contact__btn">Send</a>
+
+                           <p id="contact__msg-success"><i class="far fa-check-circle" style="font-size: 24px; margin-right: 5px;"></i> Message sent!</p>
+                           <p id="contact__msg-error"><i class="fas fa-times" style="font-size: 24px; margin-right: 5px;"></i> Error! Try again.</p>
+                        </div>
+                        
                      </form>
 
                   </div>

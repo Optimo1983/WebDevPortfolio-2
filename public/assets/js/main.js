@@ -50,17 +50,56 @@ jQuery(document).ready(function($) {
          `
          }
     );
-    
-    /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    new GitHubCalendar("#github-graph", "Optimo1983", { responsive: true });
 
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "Optimo1983", selector: "#ghfeed" });
+   /* When user clicks send button, do a POST request with form info to server via AJAX and provide message to user if info was sent successfully or an error occurred  */
+   var   name = $('#contact__name'),
+         email = $('#contact__email'),
+         message = $('#contact__message'),
+         msgSuccess = $('#contact__msg-success'),
+         msgError = $('#contact__msg-error');
+
+   $('.contact__btn').on('click', function(e) {
+      e.preventDefault();
+
+      $.ajax({
+         url: '/api/contact',
+         method: 'POST',
+         data: {
+            name: name.val(),
+            email: email.val(),
+            message: message.val()
+         },
+         success: function() {
+            msgSuccess.css('display', 'flex');
+            name.val('');
+            email.val('');
+            message.val('');
+         },
+         error: function(request, status, error) {
+            console.log(error)
+            msgError.css('display', 'flex');
+         }
+      });
+
+      setTimeout(function() {
+         msgError.css('display', 'none');
+         msgSuccess.css('display', 'none');
+   
+      }, 3000);
+
+   });
+   
+
+   /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
+   new GitHubCalendar("#github-graph", "Optimo1983", { responsive: true });
+
+   /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
+   GitHubActivity.feed({ username: "Optimo1983", selector: "#ghfeed" });
 });
 
 
+/* When user clicks 'Contact Me' button at top of page. Scroll page down to Contact section and 'highlight' Contact section briefly */
 document.getElementById('scroll-btn').addEventListener('click', (e) => {
-
    setTimeout(() => {
       document.getElementById('contact').style.boxShadow = '0 0 12px 0px #5CE0D8';
    }, 500);
@@ -68,34 +107,3 @@ document.getElementById('scroll-btn').addEventListener('click', (e) => {
       document.getElementById('contact').style.boxShadow = 'none';
    }, 1500);
 });
-
-// document.querySelector('.contact__btn').addEventListener('click', (e) => {
-//    e.preventDefault();
-//    submitMsg();
-
-   
-//    async function submitMsg() {
-//       const name = document.querySelector('.contact__name').value,
-//             email = document.querySelector('.contact__email').value,
-//             message = document.querySelector('.contact__message').value;
-
-//       try {
-//          await axios.post('/contact', {
-//             name: name,
-//             email: email,
-//             message: message
-//          })
-//          .then(response => {
-//             if (response.data.error) {
-//                return console.log(response.data.error);
-//             }
-   
-//             return console.log(response.data)
-//          });
-//       } catch (error) {
-//          if (error) {
-//             console.log(error);
-//          }
-//       }
-//    }
-// });
