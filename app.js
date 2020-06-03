@@ -1,7 +1,7 @@
 const    express = require('express'),
          app = express(),
+         compression = require('compression'),
          nodemailer = require('nodemailer'),
-         axios = require('axios').default,
          port = process.env.PORT || 3000;
          require('dotenv').config();
 
@@ -9,6 +9,7 @@ const    express = require('express'),
 // ===============================================
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(compression());
 
 // === NODEMAILER CONFIG ===
 // ===============================================
